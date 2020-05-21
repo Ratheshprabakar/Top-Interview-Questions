@@ -19,7 +19,32 @@ Assume we are dealing with an environment which could only store integers within
 #include<stdio.h>
 int main()
 {
-	long int num;
+	long int num,temp;
+	int rem,count=0,flag=0;
+	printf("Enter the number\t");
+	scanf("%ld",&num);
+	if(num<0)
+	{
+		num*=-1;
+		flag=1;	
+	}
+	temp=num;
+	while(num>0)
+	{
+		rem=num%10;
+		count++;
+		num=num/10;	
+	}
+	num=0;
+	while(temp>0)
+	{
+		rem=temp%10;
+		num+=rem * pow(10,count-1);
+		count--;
+		temp=temp/10;	
+	}
+	(flag==1)?printf("The Reverse Integer is \t%ld",num*-1):printf("The Reverse Integer is\t%ld",num*1);
+	
 	
 
 }
